@@ -531,7 +531,7 @@ document.getElementById('form-turma').addEventListener('submit', e=>{
   if(!serie||!turma) return showToast('Preencha a série e a turma.','error')
   if(state.turmas.some(t=>t.serie.toLowerCase()===serie.toLowerCase()&&t.turma.toLowerCase()===turma.toLowerCase())) return showToast('Essa turma já foi cadastrada.','error')
   state.turmas.push({id:genId(),serie,turma,createdAt:Date.now()})
-  saveState()
+  await saveState()
   showToast(`Turma ${serie} ${turma} adicionada.`)
   document.getElementById('inp-turma').value=''
   renderLancar()
