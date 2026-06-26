@@ -619,7 +619,7 @@ function handleResultado(e) {
   const existing = state.resultados.find(r=>r.turmaId===turmaId&&r.disciplina===disciplina&&r.simulado===simulado)
   if(existing) { existing.nota=nota; existing.nivel=nivel }
   else { state.resultados.push({id:genId(),turmaId,disciplina,simulado,nota,nivel,createdAt:Date.now()}) }
-  saveState()
+  await saveState()
   const t = state.turmas.find(x=>x.id===turmaId)
   showToast(`Resultado salvo: ${t?t.serie:''} ${t?t.turma:''} · ${DISCIPLINAS[disciplina].short} · ${simulado}.`)
   document.getElementById('inp-simulado').value=''
