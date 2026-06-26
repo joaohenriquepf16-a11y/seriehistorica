@@ -545,7 +545,7 @@ function confirmDeleteTurma(id) {
   document.getElementById('dialog-overlay').classList.remove('hidden')
 }
 function closeDeleteDialog() { document.getElementById('dialog-overlay').classList.add('hidden'); deleteTarget=null }
-document.getElementById('btn-confirm-delete').addEventListener('click',()=>{
+document.getElementById('btn-confirm-delete').addEventListener('click', async ()=>{
   if(!deleteTarget) return
   state.turmas = state.turmas.filter(t=>t.id!==deleteTarget.id)
   state.resultados = state.resultados.filter(r=>r.turmaId!==deleteTarget.id)
