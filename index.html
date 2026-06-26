@@ -600,7 +600,7 @@ function renderResultForm() {
   document.getElementById('form-resultado').addEventListener('submit', handleResultado)
 }
 
-function handleResultado(e) {
+async function handleResultado(e) {
   e.preventDefault()
   const turmaId = document.getElementById('sel-turma').value
   const disciplina = document.getElementById('sel-disc').value
