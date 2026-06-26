@@ -304,8 +304,10 @@ function normalize(v) {
   const r = (v||{})
   return {
     turmas: Array.isArray(r.turmas) ? r.turmas : [],
-    resultados: (Array.isArray(r.resultados) ? r.resultados : []).map(x=>({...x, disciplina: x.disciplina||'portugues'}))
-  }
+    resultados: (Array.isArray(r.resultados) ? r.resultados : []).map(x => ({
+    ...x,
+    disciplina: x.disciplina || 'portugues'
+}))  }
 }
 
 async function loadState() {
