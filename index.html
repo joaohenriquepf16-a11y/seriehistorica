@@ -308,9 +308,26 @@ function normalize(v) {
   }
 }
 
-function loadState() {
-  try { const raw=localStorage.getItem(LS_KEY); state = raw ? normalize(JSON.parse(raw)) : {turmas:[],resultados:[]} }
-  catch { state = {turmas:[],resultados:[]} }
+async function loadState() {
+
+    const snapshot = await db.ref("dados").once("value");
+
+    if(snapshot.exists()){
+
+        state = normalize(snapshot.val());
+
+    }else{
+
+        state = {
+
+            turmas: [],
+
+            resultados: []
+
+        };
+
+    }
+
 }
 
 function saveState() {
