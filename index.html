@@ -330,8 +330,10 @@ async function loadState() {
 
 }
 
-function saveState() {
-  localStorage.setItem(LS_KEY, JSON.stringify(state))
+async function saveState(){
+
+    await db.ref("dados").set(state);
+
 }
 
 /* ── Toast ── */
