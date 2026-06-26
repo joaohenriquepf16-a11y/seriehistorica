@@ -524,7 +524,7 @@ function renderTurmasList() {
     </li>`).join('') + '</ul>'
 }
 
-document.getElementById('form-turma').addEventListener('submit', e=>{
+document.getElementById('form-turma').addEventListener('submit', async (e)=>{
   e.preventDefault()
   const serie = document.getElementById('inp-serie').value.trim()
   const turma = document.getElementById('inp-turma').value.trim()
