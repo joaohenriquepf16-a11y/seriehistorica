@@ -549,7 +549,7 @@ document.getElementById('btn-confirm-delete').addEventListener('click',()=>{
   if(!deleteTarget) return
   state.turmas = state.turmas.filter(t=>t.id!==deleteTarget.id)
   state.resultados = state.resultados.filter(r=>r.turmaId!==deleteTarget.id)
-  saveState()
+  await saveState()
   showToast(`Turma ${deleteTarget.serie} ${deleteTarget.turma} excluída.`)
   closeDeleteDialog()
   renderLancar()
