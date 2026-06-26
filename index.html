@@ -630,7 +630,7 @@ function handleResultado(e) {
 /* ── Remove resultado ── */
 function removeResultado(id) {
   state.resultados = state.resultados.filter(r=>r.id!==id)
-  saveState()
+  await saveState()
   renderDashboard()
 }
 
