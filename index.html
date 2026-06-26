@@ -637,23 +637,38 @@ async function removeResultado(id) {
 
 /* ── Init ── */
 async function init() {
-  // Set Firebase badge (local only)
-  document.getElementById('firebase-badge').innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg> Modo local`
+    console.log("1 - init começou");
 
- await loadState();
+    document.getElementById('firebase-badge').innerHTML = `...`;
 
-  // Splash
-  setTimeout(()=>{
-    const splash = document.getElementById('splash')
-    splash.style.opacity='0'
-    setTimeout(()=>{
-      splash.style.display='none'
-      document.getElementById('app').classList.remove('hidden')
-      document.getElementById('loading-msg').style.display='none'
-      document.getElementById('app-content').classList.remove('hidden')
-      renderDashboard()
-    }, 500)
-  }, 2600)
+    console.log("2 - badge criada");
+
+    await loadState();
+
+    console.log("3 - loadState terminou");
+
+    setTimeout(() => {
+        console.log("4 - timeout iniciou");
+
+        const splash = document.getElementById('splash');
+        splash.style.opacity = '0';
+
+        setTimeout(() => {
+            console.log("5 - escondendo splash");
+
+            splash.style.display = 'none';
+            document.getElementById('app').classList.remove('hidden');
+            document.getElementById('loading-msg').style.display = 'none';
+            document.getElementById('app-content').classList.remove('hidden');
+
+            console.log("6 - renderizando");
+
+            renderDashboard();
+
+            console.log("7 - fim");
+        }, 500);
+
+    }, 2600);
 }
 
 // Load logo and init
