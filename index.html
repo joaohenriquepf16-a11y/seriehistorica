@@ -628,7 +628,7 @@ function handleResultado(e) {
 }
 
 /* ── Remove resultado ── */
-function removeResultado(id) {
+async function removeResultado(id)
   state.resultados = state.resultados.filter(r=>r.id!==id)
   await saveState()
   renderDashboard()
